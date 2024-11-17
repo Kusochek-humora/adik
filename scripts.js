@@ -35,4 +35,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Создаем цветочек при клике
     createFlower(e);
   });
+  document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+      // Получаем значение из data-code атрибута
+      const textToCopy = button.getAttribute('data-code');
+      navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+          alert(`Скопировано: ${textToCopy}`);
+        })
+        .catch(err => {
+          console.error('Ошибка при копировании текста: ', err);
+        });
+    });
+  });
+  
 });
