@@ -207,7 +207,8 @@
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1160px;
+    padding: 0 20px;
     gap: 30px 0;
     width: 100%;
     display: flex;
@@ -231,39 +232,22 @@
       <img src="adik.jpg" alt="Фото человека" class="main-photo">
       <img src="adik_hover.png" alt="Фото человека" class="hover-photo">
     </div>
-    <!-- <div class="donation-card ">
-      <h1 class="tlt"></h1>
-      <p>Каждая сумма важна. Будем благодарны за вашу поддержку!</p>
-      <iframe width="200px" height="200px" src="https://www.donationalerts.com/widget/goal/8249794?token=73G06tiP9GZHojccyrNr" frameborder="0"></iframe> -->
-
 
     <div class="card">
 
       <p>Каждый донат помогает улучшать контент и развивать проект!</p>
-      <button type="button" class="btn" data-code="4400430290852588">4400 4302 9085 2588 KZ</button>
-      <button type="button" class="btn" data-code="2200700150946175">2200 7001 5094 6175 RU</button>
-      <!-- <a href="#" class="btn" style="display: inline-block; margin-top: 20px;">Скопировать код</a> -->
+      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
+        data-code="4400430290852588">4400 4302 9085 2588 KZ</button>
+      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
+        data-code="2200700150946175">2200 7001 5094 6175 RU</button>
+      <!-- Автор Янесса спермовна -->
     </div>
-    <!-- Добавляем звук -->
-    <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
-  </div>
-  <!-- Подключаем jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Подключаем Textillate.js -->
-  <script src="https://cdn.jsdelivr.net/gh/jschr/textillate/jquery.textillate.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/davatron5000/Lettering.js/jquery.lettering.js"></script>
 
-  <!-- Инициализация Textillate -->
-  <script>
-    $(document).ready(function () {
-      $('.tlt').textillate({
-        in: { effect: 'fadeInLeft' }, // Входящий эффект
-        out: { effect: 'fadeOutRight' }, // Исходящий эффект (опционально)
-        loop: true // Цикличная анимация
-      });
-    });
-  </script>
-  <script src="scripts.js"></script>
+    <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
+    
+    <audio id="sound-2" src="prikol.mp3" preload="auto"></audio>
+  </div>
+<script src="scripts.js"></script>
 </body>
 
 </html>

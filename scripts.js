@@ -39,8 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', () => {
       // Получаем значение из data-code атрибута
       const textToCopy = button.getAttribute('data-code');
+      
       navigator.clipboard.writeText(textToCopy)
         .then(() => {
+          // Воспроизводим звук после копирования
+          const audio = document.getElementById('sound-2');
+          audio.play(); // Воспроизведение звука
+  
           alert(`Скопировано: ${textToCopy}`);
         })
         .catch(err => {
@@ -48,5 +53,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
   });
-  
 });
