@@ -156,7 +156,10 @@
     /* Более тёмный цвет */
     margin-bottom: 10px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
   }
+
+  @media screen and (max-width:500px) {}
 
   .card p {
     font-size: 1.2rem;
@@ -226,7 +229,7 @@
 <body>
   <div class="container">
     <div class="card">
-      <h1 class="tlt" style="margin-bottom: 30px;">Помоги собрать на татуировку!</h1>
+      <h1 class="tlt" ">Помоги собрать на татуировку!</h1>
     </div>
     <div class="photo" id="photo">
       <img src="adik.jpg" alt="Фото человека" class="main-photo">
@@ -244,10 +247,10 @@
     </div>
 
     <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
-    
+
     <audio id="sound-2" src="prikol.mp3" preload="auto"></audio>
   </div>
-<script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 
 </html>
