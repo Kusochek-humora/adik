@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Создаем цветочек при клике
     createFlower(e);
   });
+  document.querySelectorAll('.prize-list li').forEach((item) => {
+    item.addEventListener('click', () => {
+      const amount = item.getAttribute('data-amount');
+      alert(`Вы выбрали донат на сумму ${amount} тенге!`);
+    });
+  });
   document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', () => {
       // Получаем значение из data-code атрибута
@@ -43,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
       navigator.clipboard.writeText(textToCopy)
         .then(() => {
           // Воспроизводим звук после копирования
-          const audio = document.getElementById('sound-2');
-          audio.play(); // Воспроизведение звука
+          // const audio = document.getElementById('sound-2');
+          // audio.play(); // Воспроизведение звука
   
           alert(`Скопировано: ${textToCopy}`);
         })

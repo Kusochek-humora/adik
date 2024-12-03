@@ -1,0 +1,251 @@
+  <!-- <div class="container">
+    <div class="card">
+      <h1 class="tlt" >Помоги собрать на татуировку!</h1>
+    </div>
+    <div class="photo" id="photo">
+      <img src="adik.jpg" alt="Фото человека" class="main-photo">
+      <img src="adik_hover.png" alt="Фото человека" class="hover-photo">
+    </div>
+
+    <div class="card">
+
+      <p>Каждый донат помогает улучшать контент и развивать проект!</p>
+      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
+        data-code="4400430290852588">4400 4302 9085 2588 KZ</button>
+      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
+        data-code="2200700150946175">2200 7001 5094 6175 RU</button>
+
+    </div>
+
+    <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
+
+    <audio id="sound-2" src="prikol.mp3" preload="auto"></audio>
+
+    <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: "logo";
+    src:
+      url(logo.woff) format("woff"),
+      url(logo.woff2) format("woff2");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    color: #333;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradient 6s infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .photo img {
+    width: 300px;
+    border-radius: 15px;
+    /* Скругленные углы */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Тень вокруг фотографии */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .photo {
+    position: relative;
+    width: 300px;
+    height: 400px;
+  }
+
+  .main-photo,
+  .hover-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.8s all;
+  }
+
+  .photo:hover .main-photo {
+    opacity: 0;
+  }
+
+  .photo:hover .hover-photo {
+    opacity: 1;
+  }
+
+  .main-photo {
+    opacity: 1;
+  }
+
+  .hover-photo {
+    opacity: 0;
+  }
+
+  /* Стили для анимации цветочков */
+  .flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+    animation: fall 3s ease-in-out forwards;
+  }
+
+  @keyframes fall {
+    0% {
+      top: -60px;
+      transform: scale(0.5);
+      opacity: 1;
+    }
+
+    100% {
+      top: 100%;
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .donation-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  .donation-card h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .donation-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .donate-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .donate-button:hover {
+    transform: scale(1.1);
+    background-color: #45a049;
+  }
+
+  .card h2 {
+    font-size: 1.8rem;
+    /* Увеличен шрифт заголовка */
+    font-weight: 600;
+    color: #333;
+    /* Более тёмный цвет */
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  }
+
+  @media screen and (max-width:500px) {}
+
+  .card p {
+    font-size: 1.2rem;
+    /* Увеличен размер описания */
+    color: #444;
+    /* Сделан темнее */
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .card .code {
+    font-size: 1.8rem;
+    /* Увеличен размер текста кода */
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ff758c;
+    /* Слегка затемнённый цвет */
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+
+  .card .code:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #fff, 0 0 12px #ff758c;
+  }
+
+  .card .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    /* Увеличен размер кнопки */
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    /* Увеличен шрифт кнопки */
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(255, 121, 198, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 121, 198, 0.5);
+  }
+
+  .container {
+    max-width: 1160px;
+    padding: 0 20px;
+    gap: 30px 0;
+    width: 100%;
+    display: flex;
+    place-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  button {
+    border: 0;
+    cursor: pointer;
+  }
+</style>
+  </div> -->
