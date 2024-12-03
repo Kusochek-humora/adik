@@ -320,31 +320,32 @@
     width: 100%;
     background-color: black;
   }
+
   .progress-container {
-      width: 100%;
-      background-color: #e0e0e0;
-      border-radius: 5px;
-      overflow: hidden;
-    }
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
 
-    .progress-bar {
-      height: 30px;
-      width: 0%;
-      background: linear-gradient(90deg, #ff758c, #ff7eb3);
-      text-align: center;
-      line-height: 30px;
-      color: white;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: width 0.3s ease-in-out;
-    }
+  .progress-bar {
+    height: 30px;
+    width: 0%;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+  }
 
-    /* Стиль для отображения суммы */
-    .amount {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+  /* Стиль для отображения суммы */
+  .amount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 </style>
 
 <body>
@@ -373,14 +374,14 @@
     <div class="progress-container">
       <div class="progress-bar" id="progress-bar">0%</div>
     </div>
-  
+
     <div class="amount" id="amount">Собрано: 0 тенге</div>
-  
+
     <!-- Встраиваем виджет -->
 
-  
-  
-  
+
+
+
 
     <!-- Реквизиты -->
     <!-- <div class="card">
@@ -391,7 +392,7 @@
         data-code="2200700150946175">2200 7001 5094 6175 RU</button>
     </div> -->
     <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
-<!-- 
+    <!-- 
     <audio id="sound-2" src="prikol.mp3" preload="auto"></audio> -->
     <!-- Видео -->
   </div>
@@ -401,7 +402,7 @@
 
 
     <video controls>
-      <source src="donation.mp4" type="video/mp4">
+      <source src="donation.mp4" type="video/mp4" poster="3.jpg">
       Ваш браузер не поддерживает видео.
     </video>
 
@@ -443,7 +444,10 @@
 
     <!-- Реквизиты -->
     <div class="card">
+
       <p>Сбор донатов будет длиться до 20 декабря!</p>
+
+      <a href="https://www.donationalerts.com/r/sasha_rocket" target="_blank" class="btn">Ссылка на донат</a>
     </div>
 
     <!-- Итог -->
@@ -456,7 +460,7 @@
 
     <!-- Ссылка на инстаграм -->
     <div class="card">
-      <a href="https://www.instagram.com/standupclub" class="btn">Ссылка на инстаграм стендап-клуба</a>
+      <a href="https://www.standupclub.kz/" target="_blank" class="btn">Ссылка на инстаграм стендап-клуба</a>
     </div>
 
     <!-- Логотип в конце -->
