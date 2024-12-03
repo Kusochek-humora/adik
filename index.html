@@ -377,64 +377,9 @@
     <div class="amount" id="amount">Собрано: 0 тенге</div>
   
     <!-- Встраиваем виджет -->
-    <div id="donation-widget">
-      <iframe src="https://www.donationalerts.com/widget/goal/8249794?token=73G06tiP9GZHojccyrNr" frameborder="0" width="100%" height="200" scrolling="no"></iframe>
-    </div>
+
   
-    <script>
-      // Ваши данные API и настройки
-      const apiToken = '73G06tiP9GZHojccyrNr'; // Ваш токен
-      const appId = 8249794; // ID приложения
-      const goalAmount = 500000; // Цель для прогресса (например, 500000 тенге)
   
-      // Функция для получения данных о донатах
-      async function fetchDonations() {
-        try {
-          // Замените URL на правильный API endpoint
-          const response = await fetch(`https://www.donationalerts.com/api/v1/widgets/${appId}/donations`, {
-            method: 'GET',
-            headers: {
-              'Authorization': `Bearer ${apiToken}`,
-              'Content-Type': 'application/json'
-            }
-          });
-          
-          const data = await response.json();
-  
-          if (data && data.total_donated) {
-            const totalDonated = data.total_donated; // Сумма донатов
-  
-            // Обновляем прогресс
-            updateProgressBar(totalDonated);
-          } else {
-            console.error('Ошибка получения данных о донатах');
-          }
-        } catch (error) {
-          console.error('Ошибка запроса:', error);
-        }
-      }
-  
-      // Функция для обновления прогресс-бара
-      function updateProgressBar(amount) {
-        const progressBar = document.getElementById('progress-bar');
-        const amountText = document.getElementById('amount');
-  
-        const progressPercentage = Math.min((amount / goalAmount) * 100, 100); // Ограничиваем 100%
-  
-        // Обновляем текст прогресса
-        progressBar.style.width = `${progressPercentage}%`;
-        progressBar.innerText = `${Math.round(progressPercentage)}%`;
-  
-        // Обновляем отображение суммы
-        amountText.innerText = `Собрано: ${amount} тенге`;
-      }
-  
-      // Запускаем периодическое обновление данных
-      setInterval(fetchDonations, 5000); // Получаем данные каждую 5 секунду
-  
-      // Инициализируем начальное состояние
-      fetchDonations();
-    </script>
   
 
     <!-- Реквизиты -->
