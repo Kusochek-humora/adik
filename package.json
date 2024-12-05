@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "browser-sync": "^3.0.3",
+    "webpack": "^5.97.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^5.1.0"
+  }
+}

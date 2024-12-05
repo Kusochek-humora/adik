@@ -1,474 +1,181 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Собираем на татуировку</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>На слабо</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  @font-face {
-    font-family: "logo";
-    src:
-      url(logo.woff) format("woff"),
-      url(logo.woff2) format("woff2");
-    font-display: swap;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    color: #333;
-    background: #fff;
-    background-size: 400% 400%;
-    animation: gradient 6s infinite;
-  }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .container {
-    text-align: center;
-  }
-
-  .photo img {
-    width: 300px;
-    border-radius: 15px;
-    /* Скругленные углы */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    /* Тень вокруг фотографии */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
-
-  .photo {
-    position: relative;
-    width: 300px;
-    height: 400px;
-  }
-
-  .main-photo,
-  .hover-photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: 0.8s all;
-  }
-
-  .photo:hover .main-photo {
-    opacity: 0;
-  }
-
-  .photo:hover .hover-photo {
-    opacity: 1;
-  }
-
-  .main-photo {
-    opacity: 1;
-  }
-
-  .hover-photo {
-    opacity: 0;
-  }
-
-  /* Стили для анимации цветочков */
-  .flower {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: pink;
-    border-radius: 50%;
-    opacity: 1;
-    pointer-events: none;
-    animation: fall 3s ease-in-out forwards;
-  }
-
-  @keyframes fall {
-    0% {
-      top: -60px;
-      transform: scale(0.5);
-      opacity: 1;
-    }
-
-    100% {
-      top: 100%;
-      transform: scale(1.5);
-      opacity: 0;
-    }
-  }
-
-  .donation-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin-top: 20px;
-  }
-
-  .donation-card h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
-  .donation-buttons {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .donate-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .donate-button:hover {
-    transform: scale(1.1);
-    background-color: #45a049;
-  }
-
-  .card h2 {
-    font-size: 1.8rem;
-    /* Увеличен шрифт заголовка */
-    font-weight: 600;
-    color: #333;
-    /* Более тёмный цвет */
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-  }
-
-  @media screen and (max-width:500px) {}
-
-  .card p {
-    font-size: 1.2rem;
-    /* Увеличен размер описания */
-    color: #444;
-    /* Сделан темнее */
-    margin-bottom: 20px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .card .code {
-    font-size: 1.8rem;
-    /* Увеличен размер текста кода */
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: #ff758c;
-    /* Слегка затемнённый цвет */
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.3s ease;
-  }
-
-  .card .code:hover {
-    color: #fff;
-    text-shadow: 0 0 8px #fff, 0 0 12px #ff758c;
-  }
-
-  .card .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    /* Увеличен размер кнопки */
-    background: linear-gradient(90deg, #ff758c, #ff7eb3);
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    /* Увеличен шрифт кнопки */
-    font-weight: 600;
-    text-align: center;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(255, 121, 198, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .card .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 121, 198, 0.5);
-  }
-
-  .container {
-    max-width: 1160px;
-    padding: 0 20px;
-    gap: 30px 0;
-    width: 100%;
-    display: flex;
-    place-items: center;
-    margin: 0 auto;
-    flex-direction: column;
-  }
-
-  button {
-    border: 0;
-    cursor: pointer;
-  }
-
-  .tlt {
-    text-transform: uppercase;
-    font-family: "logo", serif;
-    font-size: 100px;
-    letter-spacing: 1px;
-  }
-
-  .content {
-    display: flex;
-    gap: 0 30px;
-  }
-
-  .info {
-    width: 300px;
-  }
-
-  .info h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .info p {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  ul li {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
-    height: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    background-color: #E3DEDC;
-    color: black;
-    border-radius: 20px;
-    display: flex;
-    gap: 0 20px;
-  }
-
-  ul li span:first-child {
-
-    background-color: #ff758c;
-    width: 16%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    color: white;
-
-  }
-
-  video {
-    height: 600px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .video {
-    padding: 30px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 600px; */
-    margin-bottom: 50px;
-    max-width: 100vw;
-    width: 100%;
-    background-color: black;
-  }
-
-  .progress-container {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  .progress-bar {
-    height: 30px;
-    width: 0%;
-    background: linear-gradient(90deg, #ff758c, #ff7eb3);
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: width 0.3s ease-in-out;
-  }
-
-  /* Стиль для отображения суммы */
-  .amount {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-</style>
 
 <body>
-  <div class="container">
-    <!-- Логотип -->
-    <div class="card" style="margin-top: 50px;">
-      <h1 class="tlt">наслабо</h1>
-    </div>
+    <header class="header">
+        <!-- <div class="header__image">
+            <img src="media/sashsa.png" alt="sashsa">
+        </div> -->
+        <div class="header__info">
+            <div class="header__logo logo">
+                наслабо
+            </div>
+            <h1 class="header__title">
+                Стань участником шоу <br>
+                за любой донат!
+            </h1>
 
-    <!-- Фото слева, текст справа -->
-    <div class="content">
-      <div class="photo" id="photo">
-        <img src="1.png" alt="Фото человека" class="main-photo">
-        <img src="2.png" alt="Фото человека" class="hover-photo">
-      </div>
-      <div class="info">
-        <h2>Привет, меня зовут Саша Нестеренко!</h2>
-        <p>
-          Я ведущий шоу "НАСЛАБО", и я готов сделать татуировку с лицом мастера наказаний за 500 000 тенге!
-        </p>
-      </div>
-    </div>
+            <div class="progress">
+                <p class="progress-text">Собрано:</p>
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+                <div class="progress-prices">
+                    <span>
+                        0
+                    </span>
+                    <span>
+                        500000т
+                    </span>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="header__link link">
+                Задонатить
+            </a>
+        </div>
+    </header>
+    <main class="content">
+        <section class="info">
+            <div class="container info__container">
+                <h2 class="info__title">Выиграет только один! <br>
+                    Больше донатов - больше шансов</h2>
+                <p class="info__text">
+                    За 500 000 тенге я набью татуировку с лицом мастера наказаний! <br>
+                    Саша Нестеренко, ведущий “НАСЛАБО”
+                </p>
+            </div>
 
-    <!-- Полоса донатов -->
+        </section>
+        <section class="video">
+            <div class="container video__container">
+                <div class="video__wrapper">
+                    <!-- <img src="media/qwe.jpg" alt="poster" class="video__wrapper-poster"> -->
 
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar">0%</div>
-    </div>
+                    <video controls poster="media/qwe.jpg">
+                        <source src="media/donation.mp4" type="video/mp4">
+                    </video>
 
-    <div class="amount" id="amount">Собрано: 0 тенге</div>
+                </div>
+            </div>
+        </section>
+        <section class="info">
+            <div class="container info__container"
+                style="display: flex; flex-direction: column; align-items:center; justify-content: center;">
+                <h2 class="info__title" style="margin-bottom: 31px;">Время ограничено!</h2>
+                <p class="info__text">
+                    Сбор продлиться до 25 декабря <br>
+                    Результаты в инстаграм стендап-клуба
+                </p>
+                <div class="info__text" id="timer">
+                    <span> осталось: </span>
+                    <span id="days">0</span>
+                    <span id="hours">0</span>
+                    <span id="minutes">0</span>
+                    <span id="seconds" style="display: none;">0</span>
+                </div>
+                <a href="https://www.instagram.com/central.standup.almaty" target="_blank" class="link info__link"> @central.standup.almaty</a>
+            </div>
 
-    <!-- Встраиваем виджет -->
+        </section>
+        <section class="prize">
+
+            <div class="prize__inner">
+                <h2 class="prize__title">
+                    Призы за каждый донат
+                </h2>
+                <p class="prize__text">
+                    Стань игроком за любую сумму!
+                    Больше донатов - больше шансов!
+                </p>
+                <ul class="prize__list">
+                    <li class="prize__list-item"> 2000₸ - билет на все технические вечеринки "НАСЛАБО"</li>
+                    <li class="prize__list-item"> 3000₸ - недовольный видеопривет от Руслана Мавлюдинова
+                        (племянника Мурата Насырова)</li>
+                    <li class="prize__list-item"> 5000₸ - билет на любой стендап концерт в клубе</li>
+                    <li class="prize__list-item"> 10000₸ - билеты на все технички и съемки "НАСЛАБО"</li>
+                    <li class="prize__list-item">20000₸ - стать мастером наказаний</li>
+                    <li class="prize__list-item">30000₸ - мерч стендап-клуба</li>
+                    <li class="prize__list-item"> 500 000₸ - Саша набъет что угодно, где угодно</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="best">
+            <div class="container best__container">
+                <h2 class="best__title">Лучшие выпуски шоу</h2>
+                <div class="best__inner">
+                    <iframe class="best__inner-item" src="https://www.youtube.com/embed/6EPRFzuiKt8"
+                        title="НА СЛАБО #3. Шыңғыс Ермек, Ньургун Атаков, Арсен Алтыбаев, Саша Нестеренко"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="best__inner-item" src="https://www.youtube.com/embed/g1FQpaBsHoU"
+                        title="НА СЛАБО #5. Алмаз Мержакыпов, Тілеген Еркінбеков, Ян Эйрих, Саша Нестеренко"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="best__inner-item" src="https://www.youtube.com/embed/ILqvteoiyqM"
+                        title="НА СЛАБО #6. Руслан Тай, Мухтар Ерлан, Руслан Мавлюдинов, Саша Нестеренко"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="best__inner-item" src="https://www.youtube.com/embed/YQZd9ylKpXA"
+                        title="НА СЛАБО #2. Андрей Айрапетов, Темирлан Жалдыбаев, Семён Голубь, Саша Нестеренко"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <div class="block">
+            <div class="container block__container">
 
 
-
-
-
-    <!-- Реквизиты -->
-    <!-- <div class="card">
-      <p>Каждый донат помогает улучшать контент и развивать проект!</p>
-      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
-        data-code="4400430290852588">4400 4302 9085 2588 KZ</button>
-      <button type="button" class="btn" style="display: inline-block; margin-bottom: 20px;"
-        data-code="2200700150946175">2200 7001 5094 6175 RU</button>
-    </div> -->
-    <audio id="sound" src="yamete_kudasai.mp3" preload="auto"></audio>
-    <!-- 
-    <audio id="sound-2" src="prikol.mp3" preload="auto"></audio> -->
-    <!-- Видео -->
-  </div>
-  <div class="video">
-
-
-
-
-    <video controls poster="qwe.jpg">
-      <source src="donation.mp4" type="video/mp4" >
-      Ваш браузер не поддерживает видео.
-    </video>
-
-  </div>
-  <div class="container">
-
-    <!-- Текстовый блок -->
-    <div class="card">
-      <p>
-        Шоу "НАСЛАБО" олицетворяет победу над страхами и доказывает, что стыдных вещей не бывает!
-        Я готов увековечить этот смысл у себя на ноге и набить лицо мастера наказаний!
-      </p>
-      <p>
-        Для всех, кто согласен со мной, кто любит наше шоу или просто хочет поучаствовать в веселом угаре - мы открываем
-        денежный сбор!
-        Если нам удастся собрать 500 000, то я набиваю лицо мастера наказаний!
-      </p>
-    </div>
-
-    <!-- Блок с призами -->
-    <div class="card">
-      <h2>Для всех донатеров у нас есть крутые призы!</h2>
-      <ul>
-        <ul class="price">
-          <li><span>2000 тенге</span> <span>бесплатный билет на все технические вечеринки "НАСЛАБО"</span></li>
-          <li><span>3000 тенге</span> <span>недовольный видеопривет от Руслана Мавлюдинова, (племянника Мурата
-              Насырова)</span></li>
-          <li><span>5000 тенге</span> <span>бесплатный билет на любой стендап концерт в клубе</span></li>
-          <li><span>10000 тенге</span> <span>бесплатные билеты на все технички и съемки "НАСЛАБО"</span></li>
-          <li><span>20000 тенге</span> <span>исполнить наказание на съемке вместо мастера наказаний</span></li>
-          <li><span>30000 тенге</span> <span>мерч от стендап-клуба в подарок</span></li>
-          <li><span>500000 тенге</span> <span>я набью что угодно где угодно</span></li>
-        </ul>
-
-      </ul>
-      <p>А также среди всех, кто задонатит нам любую сумму, мы разыграем участие в съемках на "НАСЛАБО" в качестве
-        игрока!</p>
-    </div>
-
-    <!-- Реквизиты -->
-    <div class="card">
-
-      <p>Сбор донатов будет длиться до 20 декабря!</p>
-
-      <a href="https://www.donationalerts.com/r/sasha_rocket" target="_blank" class="btn">Ссылка на донат</a>
-    </div>
-
-    <!-- Итог -->
-    <div class="card">
-      <p>
-        21 декабря на сайте и в инстаграме стендап-клуба мы расскажем сколько нам удалось собрать денег,
-        появится ли татуировка Мастера Наказаний у меня на ноге и мы опубликуем имя победителя розыгрыша!
-      </p>
-    </div>
-
-    <!-- Ссылка на инстаграм -->
-    <div class="card">
-      <a href="https://www.instagram.com/central.standup.almaty" target="_blank" class="btn">Ссылка на инстаграм стендап-клуба</a>
-    </div>
-
-    <!-- Логотип в конце -->
-    <div class="card">
-      <h1 class="tlt">наслабо</h1>
-    </div>
-  </div>
-
-  <script src="scripts.js"></script>
+                <div class="progress">
+                    <p class="progress-text">Собрано:</p>
+                    <div class="progress-bar">
+                        <span></span>
+                    </div>
+                    <div class="progress-prices">
+                        <span>
+                            0
+                        </span>
+                        <span>
+                            500000т
+                        </span>
+                    </div>
+                </div>
+                <a href="#" target="_blank" class="header__link link">
+                    Задонатить
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__item">
+                <div class="footer__logo logo">Саша</div>
+                <a href="https://www.instagram.com/nesterenko.standup/" target="_blank" class="footer__btn link"> @nesterenko.standup</a>
+            </div>
+            <div class="footer__item">
+                <div class="footer__logo "> <img src="media/central.png" alt="central"></div>
+                <a href="https://www.instagram.com/central.standup.almaty" target="_blank" class="footer__btn link"> @central.standup.almaty</a>
+            </div>
+            <div class="footer__item">
+                <div class="footer__logo logo"> НАСЛАБО</div>
+                <a href="https://www.youtube.com/@AlmatyCentralStandUpClub" target="_blank" class="footer__btn link" style="text-transform: uppercase;"> YOUTUBE</a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
