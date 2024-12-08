@@ -155,14 +155,14 @@ input {
   position: relative;
   overflow: hidden;
 }
-@keyframes fillProgressBar {
+/* @keyframes fillProgressBar {
   0% {
     width: 0%;
   }
   100% {
     width: 100%;
   }
-}
+} */
 
 .progress-bar > span {
   transition: 0.4s all; /* можно оставить для других переходов */

@@ -67,5 +67,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.1 });
 
     items.forEach((item) => observer.observe(item));
+    function updateAllProgressBars() {
+        const progressContainers = document.querySelectorAll('.progress');
+    
+        progressContainers.forEach((container) => {
+            const progressBar = container.querySelector('.progress-bar > span');
+            const currentValueElement = container.querySelector('.progress-prices span[data-min]');
+            const maxValueElement = container.querySelector('.progress-prices span[data-max]');
+    
+            if (progressBar && currentValueElement && maxValueElement) {
+                const currentValue = parseInt(currentValueElement.dataset.min, 10);
+                const maxValue = parseInt(maxValueElement.dataset.max, 10);
+    
+                if (!isNaN(currentValue) && !isNaN(maxValue) && maxValue > 0) {
+                    const percentage = Math.min((currentValue / maxValue) * 100, 100); // Ограничиваем до 100%
+                    progressBar.style.width = `${percentage}%`;
+    
+                    // Обновляем текст текущего значения, если требуется
+                    currentValueElement.textContent = `${currentValue}₸`;
+                } else {
+                    console.error('Некорректные данные для расчета прогресса в одном из элементов.');
+                }
+            } else {
+                console.error('Элементы для отображения прогресса не найдены в одном из блоков.');
+            }
+        });
+    }
+    
+    // Вызов функции
+    updateAllProgressBars();
     
 });
