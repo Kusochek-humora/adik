@@ -153,13 +153,25 @@ input {
   height: 68px;
   margin: 16px 0 23px 0;
   position: relative;
+  overflow: hidden;
 }
-.progress-bar> span {
+@keyframes fillProgressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.progress-bar > span {
+  transition: 0.4s all; /* можно оставить для других переходов */
   background-color: #b58154;
   border-radius: 34px;
   position: absolute;
-  width: 100%;
+  width: 0%; /* начальное значение для анимации */
   height: 100%;
+  animation: fillProgressBar 2s ease-in-out forwards; /* анимация */
 }
 .progress-prices {
   width: 100%;
